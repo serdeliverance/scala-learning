@@ -5,7 +5,7 @@ abstract class MyList[+A] {
   def tail: MyList[A]
   def isEmpty: Boolean
   def add[B >: A](element: B): MyList[B]
-  protected def printElement: String
+  def printElement: String
   override def toString: String = "[" + printElement + "]"
 }
 
@@ -22,7 +22,7 @@ class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
   def tail: MyList[A] = t
   def isEmpty: Boolean = false
   def add[B >: A](element: B): MyList[B] = new Cons(element, this)
-  override def printElement: String =
+  def printElement: String =
     if (t.isEmpty) "" + h
     else h + " " + t.printElement
 }
