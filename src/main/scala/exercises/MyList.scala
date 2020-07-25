@@ -1,36 +1,27 @@
 package exercises
 
-abstract class MyList {
-
-  /*
-    head = first element of the list
-    tail = remainder of the list
-    isEmpty = is this list empty
-    add(int) => new list with this element added
-    toString => a string representation of the list
-   */
-
-  def head: Int
-  def tail: MyList
+abstract class MyList[+A] {
+  def head: A
+  def tail: MyList[A]
   def isEmpty: Boolean
-  def add(element: Int): MyList
+  def add[B >: A](element: B): MyList[B]
   protected def printElement: String
   override def toString: String = "[" + printElement + "]"
 }
 
-object Empty extends MyList {
-  def head: Int = throw new NoSuchElementException
-  def tail: MyList = throw new NoSuchElementException
+object Empty extends MyList[Nothing] {
+  def head: Nothing = throw new NoSuchElementException
+  def tail: MyList[Nothing] = throw new NoSuchElementException
   def isEmpty: Boolean = true
-  def add(element: Int): MyList = new Cons(element, Empty)
+  def add[B >: Nothing](element: B): MyList[B] = new Cons(element, Empty)
   def printElement: String = ""
 }
 
-class Cons(h: Int, t: MyList) extends MyList {
-  def head: Int = h
-  def tail: MyList = t
+class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
+  def head: A = h
+  def tail: MyList[A] = t
   def isEmpty: Boolean = false
-  def add(element: Int): MyList = new Cons(element, this)
+  def add[B >: A](element: B): MyList[B] = new Cons(element, this)
   override def printElement: String =
     if (t.isEmpty) "" + h
     else h + " " + t.printElement
