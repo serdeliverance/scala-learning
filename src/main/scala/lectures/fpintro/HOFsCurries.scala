@@ -1,4 +1,4 @@
-package fpintro
+package lectures.fpintro
 
 object HOFsCurries extends App {
 
@@ -30,4 +30,8 @@ object HOFsCurries extends App {
 
   println(standardFormat(Math.PI))
   println(preciseFormat(Math.PI))
+
+  /*
+    1. Expand MyList
+   */
 }
