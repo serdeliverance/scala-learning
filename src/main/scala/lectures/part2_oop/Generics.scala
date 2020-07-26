@@ -1,4 +1,4 @@
-package lectures.objects
+package lectures.part2_oop
 
 object Generics extends App {
 

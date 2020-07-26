@@ -1,4 +1,4 @@
-package lectures.fpintro
+package lectures.part3_fpintro
 
 object HOFsCurries extends App {
 
