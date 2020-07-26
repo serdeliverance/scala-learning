@@ -14,6 +14,20 @@ abstract class MyList[+A] {
 
   // concatenation
   def ++[B >: A](list: MyList[B]): MyList[B]
+
+  /*
+    Exercises MyList
+      - forach  A => Unit
+      - sort function ((A, A) => Int) => MyList
+      - zipWith (list, (A, A) => B) => MyList[B]
+      - fold
+   */
+
+  // hofs
+  def foreach(p: A => Unit): Unit
+  def sort(compare: (A, A) => Int): MyList[A]
+  def zipWith[B, C](list: MyList[B], f: (A, B) => C): MyList[C]
+  def fold[B](start: B)(operator: (B, A) => B): B
 }
 
 case object Empty extends MyList[Nothing] {
@@ -28,6 +42,15 @@ case object Empty extends MyList[Nothing] {
   def filter(predicate: MyPredicate[Nothing]): MyList[Nothing] = Empty
 
   def ++[B >: Nothing](list: MyList[B]): MyList[B] = list
+
+  //hofs
+  def foreach(f: Nothing => Unit): Unit = ()
+  def sort(compare: (Nothing, Nothing) => Int): MyList[Nothing] = Empty
+  def zipWith[B, C](list: MyList[B], f: (Nothing, B) => C): MyList[C] =
+    if (list.isEmpty) Empty
+    else throw new RuntimeException("Lists do not have the same length")
+
+  def fold[B](start: B)(operator: (B, Nothing) => B): B = ???
 }
 
 case class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
@@ -50,6 +73,19 @@ case class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
     else t.filter(predicate)
 
   def ++[B >: A](list: MyList[B]): MyList[B] = new Cons(h, t ++ list)
+
+  // hofs
+  // TODO: implement
+  def foreach(f: A => Unit): Unit = ???
+
+  // TODO: implement with tail recursion
+  def sort(compare: (A, A) => Int): MyList[A] = ???
+
+  // TODO: implement
+  def zipWith[B, C](list: MyList[B], f: (A, B) => C): MyList[C] = ???
+
+  // TODO: implement
+  def fold[B](start: B)(operator: (B, A) => B): B = ???
 }
 
 trait MyPredicate[-T] {
