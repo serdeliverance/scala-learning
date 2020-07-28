@@ -1,4 +1,4 @@
-package exercises
+package beginner.exercises
 
 object MyListModule {
 

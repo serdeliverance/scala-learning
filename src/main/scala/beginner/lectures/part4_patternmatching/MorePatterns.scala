@@ -1,8 +1,8 @@
-package lectures.part4_patternmatching
+package beginner.lectures.part4_patternmatching
 
-import exercises.MyListModule._
+import beginner.exercises.MyListModule._
 
-object AllThePatterns extends App {
+object MorePatterns extends App {
 
   // just showing the most interesting samples
 

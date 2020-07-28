@@ -1,4 +1,4 @@
-package lectures.part3_fpintro
+package beginner.lectures.part3_fpintro
 
 object TuplesAndMaps extends App {
 

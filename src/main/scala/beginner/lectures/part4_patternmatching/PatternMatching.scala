@@ -1,4 +1,4 @@
-package lectures.part4_patternmatching
+package beginner.lectures.part4_patternmatching
 
 import scala.util.Random
 

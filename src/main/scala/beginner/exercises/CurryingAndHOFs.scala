@@ -1,4 +1,4 @@
-package exercises
+package beginner.exercises
 
 // TODO: implement
 object CurryingAndHOFs extends App {
