@@ -2,7 +2,7 @@ package lectures.part4_patternmatching
 
 import scala.util.Random
 
-class PatternMatching extends App {
+object PatternMatching extends App {
 
   // switch on steroids
   val random = new Random
