@@ -1,4 +1,4 @@
-package advance.lectures
+package advance.lectures.part1_intro
 
 object AdvancedPatternMatching extends App {
 
@@ -37,6 +37,7 @@ object AdvancedPatternMatching extends App {
 
   // infix patterns
   case class Or[A, B](a: A, b: B)
+
   val either = Or(2, "two")
   val humanDescription = either match {
     // case Or(number, string) => s"$number is written as $string"
@@ -52,9 +53,12 @@ object AdvancedPatternMatching extends App {
 
   abstract class MyList[+A] {
     def head: A = ???
+
     def tail: MyList[A] = ???
   }
+
   case object Empty extends MyList[Nothing]
+
   case class Cons[+A](override val head: A, override val tail: MyList[A]) extends MyList[A]
 
   object MyList {

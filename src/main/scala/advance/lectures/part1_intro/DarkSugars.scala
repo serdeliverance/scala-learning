@@ -1,4 +1,4 @@
-package advance.lectures
+package advance.lectures.part1_intro
 
 import scala.util.Try
 
@@ -39,7 +39,7 @@ object DarkSugars extends App {
   // scala spec: last character decides associativity of methods
   // methods ending with ':' are right-associative
   1 :: 2 :: 3 :: List(4, 5)
-  List(4, 5).::(3).::(2).::(1)  // its the same
+  List(4, 5).::(3).::(2).::(1) // its the same
 
   // syntax sugar #4: multi-word method naming
 
@@ -52,9 +52,11 @@ object DarkSugars extends App {
 
   // syntax sugar #5: infix types
   class Composite[A, B]
+
   val composite: Int Composite String = ???
 
   class -->[A, B]
+
   val towards: Int --> String = ???
 
   // syntax sugar #6: update() is very special, much like apply
@@ -66,8 +68,8 @@ object DarkSugars extends App {
   class Mutable {
     private var internalMember: Int = 0 // private for OO encapsulation
 
-    def member = internalMember   // "getter"
-    def member_= (value: Int): Unit =
+    def member = internalMember // "getter"
+    def member_=(value: Int): Unit =
       internalMember = value // "setter"
   }
 
