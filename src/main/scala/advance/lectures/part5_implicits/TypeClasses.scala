@@ -32,7 +32,7 @@ object TypeClasses extends App {
   object HTMLSerializerPM {
     def serializeToHTML(value: Any) = value match {
       case User(n, a, e) =>
-      case java.util.Date =>
+      // case java.util.Date =>
       case _ =>
     }
   }
